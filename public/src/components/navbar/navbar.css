@@ -1,0 +1,31 @@
+.navbar {
+  float: right;
+  /* background-color: rgb(42, 218, 113); */
+  color: #1a1a1c;
+  width: 72%;
+  height: 7vh;
+}
+
+.icons {
+  display: grid;
+  /* background-color: rgb(42, 218, 113); */
+  grid-template-columns: 20vh 20vh 20vh 20vh 50vh 0vh;
+  margin-top: 2.5vh;
+  float: right;
+}
+
+.home-icon {
+  cursor: pointer;
+}
+.trade-icon {
+  cursor: pointer;
+}
+.coin-icon {
+  cursor: pointer;
+}
+.note-icon {
+  cursor: pointer;
+}
+.search-icon {
+  cursor: pointer;
+}
