@@ -1,6 +1,6 @@
 const initialState = { details: {} };
 
-const detailsReducers = (state = initialState, action) => {
+const detailsReducer = (state = initialState, action) => {
   if (action.type === 'details') {
     return {
       details: action.details,
@@ -9,4 +9,4 @@ const detailsReducers = (state = initialState, action) => {
   return state;
 };
 
-export default detailsReducers;
+export default detailsReducer;

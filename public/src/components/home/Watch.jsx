@@ -3,6 +3,8 @@ import coinGecko from "../../apis/coinGecko";
 import { WatchListContext } from "../../context/watchListContext";
 import WatchList from "./WatchList";
 import regeneratorRuntime from 'regenerator-runtime';
+import { Container, Row } from 'react-bootstrap';
+import './home.css';
 
 const Watch = () => {
   const [coins, setCoins] = useState([]);
@@ -31,13 +33,13 @@ const Watch = () => {
     if (isLoading) {
       return <div>Loading...</div>;
     }
-
+    console.log(coins)
     return (
-      <ul className="coinlist list-group mt-2">
+      <div className="watch-list">
         {coins.map((coin) => {
           return <WatchList key={coin.id} coin={coin} deleteCoin={deleteCoin} />;
         })}
-      </ul>
+      </div>
     );
   };
 

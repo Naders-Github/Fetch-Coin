@@ -1,10 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useDispatch } from 'react-redux';
 import Chartjs from "chart.js";
 import { historyOptions } from "./chartConfigs/chartConfigs";
+// import CoinData from './CoinData.jsx';
 
 const HistoryChart = ({ data }) => {
+  const dispatch = useDispatch();
   const chartRef = useRef();
-  const { day, week, year, detail } = data;
+  const { day, week, year, years, detail } = data;
   const [timeFormat, setTimeFormat] = useState("24h");
 
   const determineTimeFormat = () => {
@@ -15,6 +18,8 @@ const HistoryChart = ({ data }) => {
         return week;
       case "1y":
         return year;
+      case "5y":
+        return years;
       default:
         return day;
     }
@@ -29,13 +34,15 @@ const HistoryChart = ({ data }) => {
             {
               label: `${detail.name} price`,
               data: determineTimeFormat(),
-              backgroundColor: "rgba(174, 305, 194, 0.5)",
-              borderColor: "rgba(174, 305, 194, 0.4",
-              pointRadius: 0,
+              borderColor: "#7918f2",
+              pointRadius: 2,
             },
           ],
         },
         options: {
+          interaction: {
+            mode: 'index',
+          },
           ...historyOptions,
         },
       });
@@ -45,48 +52,60 @@ const HistoryChart = ({ data }) => {
   const renderPrice = () => {
     if (detail) {
       return (
-        <>
-          <p className="my-0">${detail.current_price.toFixed(2)}</p>
-          <p
-            className={
-              detail.price_change_24h < 0
-                ? "text-danger my-0"
-                : "text-success my-0"
-            }
-          >
-            {detail.price_change_percentage_24h.toFixed(2)}%
-          </p>
-        </>
+        <div>
+          <p className="my-0">${detail.current_price.toLocaleString()}</p>
+        </div>
       );
     }
   };
   return (
-    <div className="bg-white border mt-2 rounded p-3">
-      <div>{renderPrice()}</div>
+    <div className="history-chart">
+      <div className="history-chart bg-white border mt-2 rounded p-3">
+        <div className="chart-buttons">
+          <button
+            className="days-button"
+            onClick={() => {
+              setTimeFormat("24hr")
+              dispatch({ type: 'day', day: day })
+            }}
+          >
+            24h
+          </button>
+          <button
+            className="weeks-button"
+            onClick={() => {
+              setTimeFormat("7d")
+              dispatch({ type: 'week', week: week })
+            }}
+          >
+            7d
+          </button>
+          <button
+            className="years-button"
+            onClick={() => {
+              setTimeFormat("1y")
+              dispatch({ type: 'year', year: year })
+            }}
+          >
+            1y
+          </button>
+          <button
+            className="all-button"
+            onClick={() => {
+              setTimeFormat("5y")
+            }}
+          >
+            5y
+          </button>
+        </div>
+      </div>
+      <div className="chart-price">{renderPrice()}</div>
       <div>
-        <canvas ref={chartRef} id="myChart" width={20} height={250}></canvas>
+        <canvas ref={chartRef} id="myChart" width={20} height={450}></canvas>
       </div>
-
-      <div className="chart-button mt-1">
-        <button
-          onClick={() => setTimeFormat("24h")}
-          className="btn btn-outline-secondary btn-sm"
-        >
-          24h
-        </button>
-        <button
-          onClick={() => setTimeFormat("7d")}
-          className="btn btn-outline-secondary btn-sm mx-1"
-        >
-          7d
-        </button>
-        <button
-          onClick={() => setTimeFormat("1y")}
-          className="btn btn-outline-secondary btn-sm"
-        >
-          1y
-        </button>
-      </div>
+      {/* <div className="coin-data">
+        <CoinData detail={detail} determineTimeFormat={determineTimeFormat}/>
+      </div> */}
     </div>
   );
 };

@@ -5,6 +5,9 @@ import thunk from 'redux-thunk';
 import coinsReducer from '../reducers/coinsReducer';
 import detailsReducer from '../reducers/detailsReducer';
 import watchReducer from '../reducers/watchReducer';
+import yearReducer from '../reducers/yearReducer';
+import weekReducer from '../reducers/weekReducer';
+import dayReducer from '../reducers/dayReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -13,6 +16,9 @@ const store = createStore(
     coinsReducer,
     detailsReducer,
     watchReducer,
+    yearReducer,
+    weekReducer,
+    dayReducer,
   }),
   composeEnhancers(applyMiddleware(thunk)),
 );

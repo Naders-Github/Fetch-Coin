@@ -6,8 +6,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import SyncAltIcon from '@material-ui/icons/SyncAlt';
-// import Dropdown from './Dropdown.jsx';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import Dropdown from './Dropdown.jsx';
 import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -61,38 +60,13 @@ const NavBar = ({ filteredCoins, handleChange, search }) => {
           <MonetizationOnIcon onClick={handleCoins} className="coin-icon" />
           <NotificationsIcon onClick={handleNotifications} className="note-icon" />
           {!toggle ? (
-            <SearchIcon onClick={handleSearchClick} className="search-icon"/>
+            <SearchIcon onClick={handleSearchClick} className="search-icon" />
           ) : (
-            // <div className="coin-search">
-            //   <Autocomplete
-            //     classes={searchBarStyle}
-            //     className="coin-input"
-            //     options={coins}
-            //     getOptionLabel={(option) => option.name}
-            //     style={{ width: 100, height: 20 }}
-            //     onInputChange={handleChange}
-            //     inputValue={search}
-            //     renderInput={(params) => <TextField {...params} label="Search..." variant="outlined" />}
-            //     style={{ width: 350 }}
-            //     renderInput={(params) => (
-            //       <TextField
-            //         {...params}
-            //         label="Search..."
-            //         variant="outlined"
-            //         style={{ backgroundColor: "#4801ff !important" }}
-            //       />
-            //     )}
-            //   />
-            // </div>
             <div className="coin-search">
-              {/* <h3 className="coin-text">Search for coins</h3> */}
-              <form>
-                <input className="coin-input" type="text" onChange={handleChange} placeholder="Fetch Coins..." />
-              </form>
+              <input className="coin-input" type="text" onChange={handleChange} placeholder="Fetch Coins..." />
             </div>
           )}
-          {/* <AccountBoxIcon /> */}
-          {/* <Dropdown /> */}
+          <Dropdown />
         </div>
       </Navbar>
       <h1 className="gradient-text">Fetch Coin</h1>
