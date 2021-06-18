@@ -1,40 +1,45 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
-import AddCoin from '../home/AddCoin'
 import { WatchListContext } from "../../context/watchListContext";
+import AddCoin from '../home/AddCoin'
+import StarIcon from '@material-ui/icons/Star';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+import './coinList.css';
 
 const CoinsList = ({ coin }) => {
-  const history = useHistory();
+  const { addCoin, watchList, deleteCoin } = useContext(WatchListContext);
   const dispatch = useDispatch();
-  const watch = useSelector((state) => state.watchReducer.watch);
-  const [isActive, setIsActive] = useState(false);
-  const { addCoin } = useContext(WatchListContext);
 
-  const handleClick = (item) => {
+  const handleAddClick = (item) => {
+    alert(`${coin.name} has been added to your watch list!`);
     addCoin(item);
-    setIsActive(false);
   };
+
+  const handleDeleteClick = (item) => {
+    alert(`${coin.name} has been deleted from your watch list!`)
+    deleteCoin(item)
+  }
 
   return (
     <div>
       <div className='coin-row'>
-        <div className='coin'>
+        {watchList.includes(coin.id) ? (
+          <StarIcon onClick={() => handleDeleteClick(coin.id)}/>
+        ) : (
+          <StarBorderIcon onClick={() => handleAddClick(coin.id)}/>
+        )}
           <Link
             to={`/coins/${coin.id}`}
             type="button"
-            className="detailsButton"
+            className="details-button"
             onClick={() => {
               dispatch({ type: 'details', details: coin })
             }}
           >
             Details
           </Link>
-          <div className="addButton">
-            Add
-          </div>
+        <div className='coin'>
           <img src={coin.image.small} alt='crypto' />
           <p className="coinName">{coin.name}</p>
           <p className='coin-symbol'>{coin.symbol}</p>
@@ -48,9 +53,9 @@ const CoinsList = ({ coin }) => {
           </p>
           <p className='coin-volume'>${coin.market_data.total_volume.usd.toLocaleString()}</p>
           {
-            coin.market_cap_change_percentage_24h > 0
-              ? <span className="coin-percent red">{Math.round(coin.market_data.market_cap_change_percentage_24h.toLocaleString() * 10) / 10}%</span>
-              : <span className="coin-percent green">{Math.round(coin.market_data.market_cap_change_percentage_24h.toLocaleString() * 10) / 10}%</span>
+            coin.market_data.market_cap_change_percentage_24h < 0
+              ? <span className="red">{Math.round(coin.market_data.market_cap_change_percentage_24h.toLocaleString() * 10) / 10}%</span>
+              : <span className="green">{Math.round(coin.market_data.market_cap_change_percentage_24h.toLocaleString() * 10) / 10}%</span>
           }
           <p className='coin-marketcap'>
             Cap: ${coin.market_data.market_cap.usd.toLocaleString()}

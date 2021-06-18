@@ -1,0 +1,186 @@
+.coin-data-details {
+  display: flex;
+}
+
+.history-chart {
+  margin: 2vh 11vh 0vh 0vh;
+  float: right;
+}
+
+#coin-data-title {
+  margin: 2vh 0vh 4vh 10vh;
+}
+
+.coin-data-image {
+  margin: 1vh 0vh 1vh 3vh;
+}
+
+#myChart {
+  margin: 7vh 0vh 0vh 5vh;
+}
+
+.chart-buttons {
+  margin: 0vh 0vh -6vh 102vh;
+}
+
+.chart-price {
+  font-size: 5vh;
+  margin: 1vh 1vh -4vh 10vh;
+}
+
+.coinData {
+  margin: 0vh 0vh 0vh 10vh;
+  width: 36vh;
+  max-width: 37vh;
+  height: 70vh;
+  box-shadow: 2px 2px white;
+  background-size: 100%;
+  background-repeat: repeat;
+}
+
+.card-body {
+  height: 5vh;
+}
+
+.coin-data-list {
+  height: 14vh;
+}
+
+.coin-data-cap {
+  padding-bottom: 2vh;
+  margin-top: 6vh;
+}
+.coin-data-volume {
+  padding-bottom: 2vh;
+  margin-top: 2vh;
+}
+.coin-data-high {
+  padding-bottom: 2vh;
+  margin-top: 2vh;
+}
+.coin-data-supply {
+  padding-bottom: 2vh;
+  margin-top: 2vh;
+}
+.coin-data-low {
+  padding-bottom: 2vh;
+  margin-top: 2vh;
+}
+
+.coin-data-market-cap-title {
+  padding-right: 13vh;
+}
+.coin-data-volume-title {
+  padding-right: 12vh;
+}
+.coin-data-high24-title {
+  padding-right: 22vh;
+}
+.coin-data-low24-title {
+  padding-right: 23.5vh;
+}
+
+.detail-add-button {
+  width: 20vh;
+  margin-left: 7vh;
+  display: inline;
+  border: 2px solid;
+  padding: 1vh;
+}
+
+.detail-add-button:hover {
+  background-color: #4801ff;
+  background-image: linear-gradient(
+       45deg,
+       #ac32e4 100%,
+       #7918f2 48%,
+       #4801ff 0%,);
+
+ background-size: 100%;
+ background-repeat: repeat;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ cursor: pointer;
+}
+
+.detail-delete-button {
+  width: 46vh;
+  margin-left: 4vh;
+  display: inline;
+  border: 2px solid;
+  padding: 1vh;
+}
+
+.detail-delete-button:hover {
+  background-color: #4801ff;
+  background-image: linear-gradient(
+       45deg,
+       #ac32e4 100%,
+       #7918f2 48%,
+       #4801ff 0%,);
+
+ background-size: 100%;
+ background-repeat: repeat;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ cursor: pointer;
+}
+
+.days-button {
+  font-size: 3vh;
+  cursor: pointer;
+}
+.weeks-button {
+  font-size: 3vh;
+  cursor: pointer;
+}
+.years-button {
+  font-size: 3vh;
+  cursor: pointer;
+}
+.all-button {
+  font-size: 3vh;
+  cursor: pointer;
+}
+.days-button:hover {
+  background-color: #4801ff;
+  background-image: linear-gradient(
+       45deg,
+       #ac32e4 100%,
+       #7918f2 48%,
+       #4801ff 0%,);
+
+ background-size: 100%;
+ background-repeat: repeat;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ cursor: pointer;
+}
+.weeks-button:hover {
+  background-color: #4801ff;
+  background-image: linear-gradient(
+       45deg,
+       #ac32e4 100%,
+       #7918f2 48%,
+       #4801ff 0%,);
+
+ background-size: 100%;
+ background-repeat: repeat;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ cursor: pointer;
+}
+.years-button:hover {
+  background-color: #4801ff;
+  background-image: linear-gradient(
+       45deg,
+       #ac32e4 100%,
+       #7918f2 48%,
+       #4801ff 0%,);
+
+ background-size: 100%;
+ background-repeat: repeat;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ cursor: pointer;
+}

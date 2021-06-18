@@ -2,14 +2,14 @@
   float: right;
   /* background-color: rgb(42, 218, 113); */
   color: #1a1a1c;
-  width: 72%;
+  width: 50%;
   height: 7vh;
 }
 
 .icons {
   display: grid;
   /* background-color: rgb(42, 218, 113); */
-  grid-template-columns: 20vh 20vh 20vh 20vh 50vh 0vh;
+  grid-template-columns: 15vh 15vh 15vh 15vh 50vh 10vh;
   margin-top: 2.5vh;
   float: right;
 }
@@ -28,4 +28,64 @@
 }
 .search-icon {
   cursor: pointer;
+}
+.home-icon:hover {
+  background-color: #4801ff;
+  background-image: linear-gradient(
+       45deg,
+       #ac32e4 100%,
+       #7918f2 48%,
+       #4801ff 0%,);
+
+ background-size: 100%;
+ background-repeat: repeat;
+ cursor: pointer;
+}
+.trade-icon:hover {
+  background-color: #4801ff;
+  background-image: linear-gradient(
+       45deg,
+       #ac32e4 100%,
+       #7918f2 48%,
+       #4801ff 0%,);
+
+ background-size: 100%;
+ background-repeat: repeat;
+ cursor: pointer;
+}
+.coin-icon:hover {
+  background-color: #4801ff;
+  background-image: linear-gradient(
+       45deg,
+       #ac32e4 100%,
+       #7918f2 48%,
+       #4801ff 0%,);
+
+ background-size: 100%;
+ background-repeat: repeat;
+ cursor: pointer;
+}
+.note-icon:hover {
+  background-color: #4801ff;
+  background-image: linear-gradient(
+       45deg,
+       #ac32e4 100%,
+       #7918f2 48%,
+       #4801ff 0%,);
+
+ background-size: 100%;
+ background-repeat: repeat;
+ cursor: pointer;
+}
+.search-icon:hover {
+  background-color: #4801ff;
+  background-image: linear-gradient(
+       45deg,
+       #ac32e4 100%,
+       #7918f2 48%,
+       #4801ff 0%,);
+
+ background-size: 100%;
+ background-repeat: repeat;
+ cursor: pointer;
 }

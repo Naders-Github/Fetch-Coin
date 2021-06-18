@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from './components/home/Home';
-import CoinSummaryPage from "./pages/CoinSummaryPage";
 import { WatchListContextProvider } from "./context/watchListContext";
 import CoinDetails from "./components/coinDetails/CoinDetails";
 import LandingPage from './components/landing/LandingPage';

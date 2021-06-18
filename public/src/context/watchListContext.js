@@ -19,8 +19,8 @@ export const WatchListContextProvider = (props) => {
 
   const deleteCoin = (coin) => {
     setWatchList(
-      watchList.filter((el) => {
-        return el !== coin;
+      watchList.filter((item) => {
+        return item !== coin;
       })
     );
   };
@@ -30,7 +30,7 @@ export const WatchListContextProvider = (props) => {
       setWatchList([...watchList, coin]);
     }
   };
-
+  console.log('WATCHLIST', watchList)
   return (
     <WatchListContext.Provider value={{ watchList, deleteCoin, addCoin }}>
       {props.children}

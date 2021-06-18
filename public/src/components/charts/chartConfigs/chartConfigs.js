@@ -17,5 +17,12 @@ export const historyOptions = {
         distribution: "linear",
       },
     ],
+    yAxes: [
+      {
+        ticks: {
+          display: false,
+        },
+      },
+    ],
   },
 };

@@ -4,23 +4,11 @@ import { useSelector } from 'react-redux';
 import CoinsList from './CoinsList.jsx';
 import Navbar from '../navbar/Navbar.jsx';
 // import Charts from './Charts.jsx';
-import { WatchListContext } from '../../context/watchListContext';
 import './coinList.css'
 
 const Coins = () => {
   const [search, setSearch] = useState('');
-  const [isActive, setIsActive] = useState(false);
-  const { addCoin } = useContext(WatchListContext);
   const coins = useSelector((state) => state.coinsReducer.coins);
-
-  const handleClick = (coin) => {
-    addCoin(coin);
-    setIsActive(false);
-  };
-
-  const handleActiveClick = () => {
-    setIsActive(true)
-  }
 
   const handleChange = (event, value) => {
     setSearch(event.target.value);
@@ -32,17 +20,23 @@ const Coins = () => {
 
   return (
     <div className="coin-main">
-      <Navbar filteredCoins={filteredCoins} handleChange={handleChange} search={search}/>
-      <div className="left-column">
-      </div>
+      <Navbar filteredCoins={filteredCoins} handleChange={handleChange} search={search} />
+        <div className="description">
+          <span className="coin-description">Coin</span>
+          <span className="price-description">Price</span>
+          <span className="volume-description">Volume</span>
+          <span className="highLow-description">High/Low</span>
+          <span className="marketCap-description">Market Cap</span>
+        </div>
       <div className="coin-container">
-        <div className="right-column">
-            <div className="coin-list">
-              {filteredCoins.map((coin, index) => (
-                <CoinsList coin={coin} key={index} isActive={isActive} handleClick={handleClick} handleActiveClick={handleActiveClick}/>
-              ))}
-            </div>
-          </div>
+        <div className="coin-list">
+          {filteredCoins.map((coin, index) => (
+            <CoinsList
+              coin={coin}
+              key={index}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

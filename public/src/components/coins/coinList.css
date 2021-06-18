@@ -4,12 +4,33 @@
   align-items: center;
   color: #fff;
   max-width: 75%;
-  margin-right: 10vh;
-  margin-left: 37vh;
+  margin-left: 25vh;
 }
 
 .coin-search {
   margin-top: -1vh;
+}
+
+.description {
+  margin: 1vh 1vh -5vh 38vh;
+  float: left;
+  font-size: 3vh;
+}
+
+.coin-description {
+  margin-right: 33vh;
+}
+.price-description {
+  margin-right: 20vh;
+}
+.volume-description {
+  margin-right: 12vh;
+}
+.highLow-description {
+  margin-right: 11vh;
+}
+.marketCap-description {
+  margin-right: 2vh;
 }
 
 .coin-text {
@@ -54,16 +75,6 @@
   max-height: 68vh;
 }
 
-.coin-container::-webkit-scrollbar-track {
-  background: orange;        /* color of the tracking area */
-}
-
-.coin-container::-webkit-scrollbar-thumb {
-  background-color: blue;    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid orange;  /* creates padding around scroll thumb */
-}
-
 .coin-row {
   display: flex;
   flex-direction: row;
@@ -85,51 +96,42 @@
   font-size: 16px;
   width: 150px;
 }
-.detailsButton {
-  border: 2px solid;
+.details-button {
   padding-inline: 3vh;
-  padding: 6px 20px 6px 20px;
+  padding: 6px 6px 6px 6px;
+  background-color: darkslateblue;
+  background-image: linear-gradient( 45deg, #ac32e4 100%, #7918f2 48%, #4801ff 0%,);
+  background-size: 100%;
+  background-repeat: repeat;
   cursor: pointer;
+  text-decoration: none;
+  border-radius: 12px;
+  margin-left: 2vh;
 }
-.addButton {
-  border: 2px solid;
+.details-button:hover {
   padding-inline: 3vh;
-  padding: 6px 20px 6px 20px;
+  padding: 6px 6px 6px 6px;
+  background-color: darkslateblue;
+  background-image: linear-gradient( 45deg, #ac32e4 100%, #7918f2 48%, #4801ff 0%,);
+  background-size: 100%;
+  background-repeat: repeat;
   cursor: pointer;
+  text-decoration: none;
+  border-radius: 12px;
+  margin-left: 2vh;
+  text-decoration: underline;
 }
 
-.detailsButton:hover {
-  background-color: #4801ff;
-  background-image: linear-gradient(
-       45deg,
-       #ac32e4 100%,
-       #7918f2 48%,
-       #4801ff 0%,);
+.outlined-star {
+  border: yellow;
+}
 
- background-size: 100%;
- background-repeat: repeat;
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
- cursor: pointer;
+.filled-star {
+  color: yellow;
 }
 
 .scrollable-element {
   scrollbar-color: blue;
-}
-
-.addButton:hover {
-  background-color: #4801ff;
-  background-image: linear-gradient(
-       45deg,
-       #ac32e4 100%,
-       #7918f2 48%,
-       #4801ff 0%,);
-
- background-size: 100%;
- background-repeat: repeat;
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
- cursor: pointer;
 }
 
 .coin img {

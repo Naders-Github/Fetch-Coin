@@ -1,114 +1,56 @@
- .home {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #1a1a1c;
-  color: #fff;
-  width: 46vh;
-  margin-left: 20vh;
-  height: 7vh;
-  float: right;
+.card-body {
+  margin: 2vh 0vh 4vh 10vh;
 }
 
-.add-more-button {
-  margin-right: 10vh
+.card {
+  box-shadow: 1vh 1vh ;
+  margin: 5vh 0vh 5vh 10vh;
 }
 
-.watched-coin-container {
+.delete-icon {
+  cursor: pointer;
+}
+
+.watch-details-button {
+  cursor: pointer;
+}
+
+.drop-down-menu {
+  margin: 0vh 0vh 0vh 12vh;
+}
+
+.main-drop-down {
+  margin: 8vh 0vh 5vh 14vh;
+}
+
+.drop-down-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  color: #fff;
-  max-width: 45%;
-  margin-right: 10vh;
-  margin-left: 37vh;
+  height: 12vh;
+  margin-left: 14vh;
+}
+.drop-down-image {
+  height: 4vh;
+  width: 4vh;
 }
 
- .watch-list-title {
-  margin: 0vh 0vh 5vh 118vh;
-  background-color: #4801ff;
-   background-image: linear-gradient(
-        45deg,
-        #ac32e4 100%,
-        #7918f2 48%,
-        #4801ff 0%,);
-
-  background-size: 100%;
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.drop-down-details-button {
+  font-size: 2vh;
 }
 
-.watched-coin-list {
+.watch-list {
   padding: 0px;
   font-family: "AdihausDIN",Helvetica, Arial, sans-serif;
   max-height: 68vh;
+  display: grid;
   float: right;
+  grid-template-columns: 50vh 50vh 50vh;
+}
+
+.menu-item {
+  color: white;
 }
 
 .watched-coin-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  border-bottom: 1px solid #d7d7d7;
-  width: 48vh;
-  height: 7vh;
-  margin-right: 30vh;
-}
-
-.watched-coin {
-  display: flex;
-  align-items: center;
-  padding-right: 24px;
-
-  min-width: 22vh;
-}
-
-.watched-coin-name {
-  font-size: 16px;
-  width: 150px;
-}
-
-.watched-coin-img {
-  height: 30px;
-  width: 30px;
-  margin-left: 2vh;
-  margin-right: 2vh;
-}
-
-.watched-coin-symbol {
-  text-transform: uppercase;
-}
-
-.watched-coin-data {
-  display: flex;
-  text-align: right;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.watched-coin-price {
-  margin-left: 10vh;
-}
-
-.watched-coin-volume {
-  width: 45px;
-}
-
-.watched-coin-marketcap {
-  width: 115px;
-}
-
-.watched-coin-percent {
-  width: 50px;
-}
-
-.watched-red {
-  color: #f00606;
-}
-
-.watched-green {
-  color: #11d811;
+  font-size: 2vh;
 }

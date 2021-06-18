@@ -1,37 +1,64 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button, Card } from 'react-bootstrap';
 
 const WatchList = ({ coin, deleteCoin }) => {
   return (
-    <Link to={`/coins/${coin.id}`} className="text-decoration-none my-1 coin">
-      <li className="coinlist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center text-dark">
-        <img className="coinlist-image" src={coin.image} alt="" />
-        <span className="text-decoration-none">{coin.current_price}</span>
 
-        <span
-          className={
-            coin.price_change_percentage_24h < 0
-              ? "text-danger mr-2"
-              : "text-success mr-2"
-          }
-        >
-          {" "}
-          {coin.price_change_percentage_24h < 0 ? (
-            <i className="fas fa-sort-down align-middle mr-1"></i>
-          ) : (
-            <i className="fas fa-sort-up align-middle mr-1"></i>
-          )}
-          {coin.price_change_percentage_24h}
-        </span>
-        <i
-          onClick={(e) => {
-            e.preventDefault();
-            deleteCoin(coin.id);
-          }}
-          className="delete-icon far fa-times-circle text-danger"
-        ></i>
-      </li>
-    </Link>
+    <div className="watched-coin-row">
+      <div className="watched-coin">
+        <img className="watched-coin-image" src={coin.image} />
+        <p className="watched-coin-name">{coin.name}</p>
+        <p className="watched-coin-price">Price: ${coin.current_price.toLocaleString()}</p>
+        {
+          coin.market_cap_change_percentage_24h < 0
+            ? <span className="red">Low: {Math.round(coin.market_cap_change_percentage_24h * 10) / 10}%</span>
+            : <span className="green">High: {Math.round(coin.market_cap_change_percentage_24h * 10) / 10}%</span>
+        }
+        <p className='coin-marketcap'>
+          Market Cap: ${coin.market_cap.toLocaleString()}
+        </p>
+      </div>
+      <Link
+        to={`/coins/${coin.id}`}
+        type="button"
+        className="watched-details-button"
+      >
+        Details
+      </Link>
+      <i
+        onClick={(e) => {
+          e.preventDefault();
+          deleteCoin(coin.id);
+        }}
+        className="delete-icon far fa-times-circle text-danger"
+      ></i>
+    </div>
+
+    // <Card style={{ width: '18rem' }}>
+    //   <Link to={`/coins/${coin.id}`}>
+    //     <Card.Img className="coinlist-image" variant="top" src={coin.image} />
+    //     <Card.Body>
+    //       <Card.Title>{coin.name}</Card.Title>
+    //       <span className="text-decoration-none">{coin.current_price}</span>
+    //       {
+    //         coin.market_cap_change_percentage_24h > 0
+    //           ? <span className="coin-percent red">{Math.round(coin.market_cap_change_percentage_24h * 10) / 10}%</span>
+    //           : <span className="coin-percent green">{Math.round(coin.market_cap_change_percentage_24h * 10) / 10}%</span>
+    //       }
+    //       <Card.Text>
+    //         coin description
+    //       </Card.Text>
+    //     </Card.Body>
+    //   </Link>
+    // <i
+    //   onClick={(e) => {
+    //     e.preventDefault();
+    //     deleteCoin(coin.id);
+    //   }}
+    //   className="delete-icon far fa-times-circle text-danger"
+    // ></i>
+    // </Card>
   );
 };
 
