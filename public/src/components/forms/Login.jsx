@@ -52,7 +52,7 @@ const LoginForm = () => {
 
           const timeOut = setTimeout(() => {
             actions.setSubmitting(false);
-            handleHome(alert('WELCOME BACK BITCH'))
+            handleHome(alert('WELCOME BACK!!'))
             clearTimeout(timeOut);
           }, 2000);
         }}
