@@ -8,28 +8,11 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import SyncAltIcon from '@material-ui/icons/SyncAlt';
 import Dropdown from './Dropdown.jsx';
 import SearchIcon from '@material-ui/icons/Search';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import { makeStyles } from '@material-ui/core/styles';
 import styles from './navbar.css';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    float: 'right',
-    marginRight: '1vh',
-    marginTop: '-11vh',
-  },
-  paper: {
-    border: "1px solid",
-    backgroundColor: "transparent"
-  }
-}));
 
 const NavBar = ({ filteredCoins, handleChange, search }) => {
   const history = useHistory();
-  const searchBarStyle = useStyles();
   const [toggle, setToggle] = useState(false);
-  const coins = useSelector((state) => state.coinsReducer.coins);
 
   const handleSearchClick = () => {
     setToggle(!toggle)

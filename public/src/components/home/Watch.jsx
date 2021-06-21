@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import coinGecko from "../../apis/coinGecko";
+import axios from "../../apis/coinGecko";
 import { WatchListContext } from "../../context/watchListContext";
 import WatchList from "./WatchList";
 import regeneratorRuntime from 'regenerator-runtime';
@@ -14,7 +14,7 @@ const Watch = () => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const response = await coinGecko.get("/coins/markets/", {
+      const response = await axios.get("/coins/markets/", {
         params: {
           vs_currency: "usd",
           ids: watchList.join(","),
@@ -37,7 +37,7 @@ const Watch = () => {
     return (
       <div className="watch-list">
         {coins.map((coin) => {
-          return <WatchList key={coin.id} coin={coin} deleteCoin={deleteCoin} />;
+          return <WatchList key={coin.id} coin={coin} deleteCoin={deleteCoin} />
         })}
       </div>
     );

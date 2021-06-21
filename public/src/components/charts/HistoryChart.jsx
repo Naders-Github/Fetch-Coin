@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 import { useDispatch } from 'react-redux';
 import Chartjs from "chart.js";
 import { historyOptions } from "./chartConfigs/chartConfigs";
-// import CoinData from './CoinData.jsx';
 
 const HistoryChart = ({ data }) => {
   const dispatch = useDispatch();
@@ -60,13 +59,12 @@ const HistoryChart = ({ data }) => {
   };
   return (
     <div className="history-chart">
-      <div className="history-chart bg-white border mt-2 rounded p-3">
+      <div className="history-chart ">
         <div className="chart-buttons">
           <button
             className="days-button"
             onClick={() => {
               setTimeFormat("24hr")
-              dispatch({ type: 'day', day: day })
             }}
           >
             24h
@@ -75,7 +73,6 @@ const HistoryChart = ({ data }) => {
             className="weeks-button"
             onClick={() => {
               setTimeFormat("7d")
-              dispatch({ type: 'week', week: week })
             }}
           >
             7d
@@ -84,7 +81,6 @@ const HistoryChart = ({ data }) => {
             className="years-button"
             onClick={() => {
               setTimeFormat("1y")
-              dispatch({ type: 'year', year: year })
             }}
           >
             1y
@@ -103,9 +99,6 @@ const HistoryChart = ({ data }) => {
       <div>
         <canvas ref={chartRef} id="myChart" width={20} height={450}></canvas>
       </div>
-      {/* <div className="coin-data">
-        <CoinData detail={detail} determineTimeFormat={determineTimeFormat}/>
-      </div> */}
     </div>
   );
 };

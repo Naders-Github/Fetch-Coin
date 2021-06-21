@@ -1,159 +1,120 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
-// import { Modal } from 'react-bootstrap';
-/* eslint-disable no-console */
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
-import SignUp from './SignUp';
+import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
+import { Formik, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#ce8837',
-    },
-  },
-  props: {
-    MuiButton: {
-      size: 'small',
-    },
-    MuiFilledInput: {
-      margin: 'dense',
-    },
-    MuiFormControl: {
-      margin: 'dense',
-    },
-    MuiFormHelperText: {
-      margin: 'dense',
-    },
-    MuiIconButton: {
-      size: 'small',
-    },
-    MuiInputBase: {
-      margin: 'dense',
-    },
-    MuiInputLabel: {
-      margin: 'dense',
-    },
-    MuiListItem: {
-      dense: true,
-    },
-    MuiOutlinedInput: {
-      margin: 'dense',
-    },
-    MuiFab: {
-      size: 'small',
-    },
-    MuiTable: {
-      size: 'small',
-    },
-    MuiTextField: {
-      margin: 'dense',
-    },
-    MuiToolbar: {
-      variant: 'dense',
-    },
-  },
-  overrides: {
-    MuiIconButton: {
-      sizeSmall: {
-        // Adjust spacing to reach minimal touch target hitbox
-        marginLeft: 4,
-        marginRight: 4,
-        padding: 12,
-      },
-    },
-  },
+import {
+  PageWrapper,
+  Title,
+  Label,
+  Input,
+  StyledInlineErrorMessage,
+  Submit,
+  CodeWrapper
+} from "./formStyles.js";
+
+const validationSchema = Yup.object().shape({
+  userName: Yup
+    .string('Enter your user name')
+    .required('❌ User name is required'),
+  password: Yup
+    .string('Enter your password')
+    .min(8, '❌ Password should be of minimum 8 characters length')
+    .required('❌ Password is required'),
 });
-const Login = ({
-  modalClose, modalType, userId, classId,
-}) => {
-  const [show, setShow] = useState(false);
-  const [loginType, setLoginType] = useState('');
-  const [type, setType] = useState(modalType);
 
-  useEffect(() => {
-    setType(modalType);
-  }, [modalType]);
+const LoginForm = () => {
+  const history = useHistory();
+  const [formValues, setFormValues] = useState('');
 
-  useEffect(() => {
-    if (modalType.length) {
-      setShow(true);
-    } else {
-      setShow(false);
-    }
-  }, [modalType]);
-
-  useEffect(() => {
-    return () => {
-      setShow(false);
-    };
-  }, []);
-
-  const editStatus = (status) => {
-    if (status) {
-      modalClose();
-    }
+  const handleChange = (event) => {
+    setFormValues(event.target.value);
   };
 
-  const handleClose = () => {
-    modalClose();
-    setLoginType('');
-  };
-  const handleType = () => {
-    console.log(type, loginType);
-    if (type === 'login') {
-      return <UserLogin close={handleClose} userType={loginType} />;
-    }
-    if (type === 'signup') {
-      return <SignUp type="user" />;
-    }
-    return <div />;
+  const handleHome = () => {
+    history.push('/home');
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <Dialog
-          PaperProps={{
-            style: {
-              backgroundColor: 'black',
-              borderWidth: 5,
-              borderRadius: 5,
-              borderColor: '#ce8837',
-              borderStyle: 'solid',
-              color: '#fff',
-            },
-          }}
-          open={show}
-          onClose={handleClose}
-          aria-labelledby="form-dialog-title"
-          style={{ backgroundColor: 'transparent' }}
-          overlayStyle={{ backgroundColor: 'transparent' }}
-        >
-          <DialogTitle id="form-dialog-title">{type === 'login' && Login}</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              <span style={{ color: 'white' }}>{type === 'login' && 'Choose login type'}</span>
-            </DialogContentText>
-            {type === 'login' && <LoginChoice loginType={loginType} setLoginType={setLoginType} />}
-            {handleType()}
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              Cancel
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-    </ThemeProvider>
+    <PageWrapper>
+      <Title className="gradient-text">
+        Login Form
+      </Title>
+      <Formik
+        initialValues={{
+          userName: "",
+          password: "",
+        }}
+        validationSchema={validationSchema}
+        onSubmit={(values, actions) => {
+          console.log(values);
+          setFormValues(values);
+
+          const timeOut = setTimeout(() => {
+            actions.setSubmitting(false);
+            handleHome(alert('WELCOME BACK BITCH'))
+            clearTimeout(timeOut);
+          }, 2000);
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleSubmit,
+          isSubmitting,
+          isValidating,
+          isValid
+        }) => {
+          return (
+            <>
+              <Form name="contact" method="post" onSubmit={handleSubmit}>
+                <Label htmlFor="userName">
+                  First Name
+                  <Input
+                    type="text"
+                    name="userName"
+                    autoCorrect="off"
+                    autoComplete="name"
+                    placeholder="your userName"
+                    valid={touched.userName && !errors.userName}
+                    error={touched.userName && errors.userName}
+                  />
+                </Label>
+                {errors.userName && touched.userName && (
+                  <StyledInlineErrorMessage>
+                    {errors.userName}
+                  </StyledInlineErrorMessage>
+                )}
+                <Label htmlFor="password">
+                  Password
+                  <Input
+                    type="text"
+                    name="password"
+                    autoCapitalize="off"
+                    autoCorrect="off"
+                    autoComplete="password"
+                    placeholder="your password"
+                    valid={touched.password && !errors.password}
+                    error={touched.password && errors.password}
+                  />
+                </Label>
+                <ErrorMessage name="password">
+                  {msg => (
+                    <StyledInlineErrorMessage>{msg}</StyledInlineErrorMessage>
+                  )}
+                </ErrorMessage>
+                <Submit type="submit" disabled={!isValid || isSubmitting}>
+                  {isSubmitting ? `Logging In...` : `Submit`}
+                </Submit>
+              </Form>
+
+            </>
+          );
+        }}
+      </Formik>
+    </PageWrapper>
   );
 };
 
-export default Login;
+export default LoginForm;

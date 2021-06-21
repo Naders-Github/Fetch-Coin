@@ -3,22 +3,18 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import coinsReducer from '../reducers/coinsReducer';
-import detailsReducer from '../reducers/detailsReducer';
-import watchReducer from '../reducers/watchReducer';
-import yearReducer from '../reducers/yearReducer';
-import weekReducer from '../reducers/weekReducer';
-import dayReducer from '../reducers/dayReducer';
+import moreCoinsReducer from '../reducers/moreCoinsReducer';
+import trendingCoinsReducer from '../reducers/trendingCoinsReducer';
+import usersReducer from '../reducers/usersReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   combineReducers({
     coinsReducer,
-    detailsReducer,
-    watchReducer,
-    yearReducer,
-    weekReducer,
-    dayReducer,
+    moreCoinsReducer,
+    trendingCoinsReducer,
+    usersReducer,
   }),
   composeEnhancers(applyMiddleware(thunk)),
 );
