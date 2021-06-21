@@ -1,6 +1,5 @@
 .navbar {
   float: right;
-  /* background-color: rgb(42, 218, 113); */
   color: #1a1a1c;
   width: 50%;
   height: 7vh;
@@ -8,8 +7,7 @@
 
 .icons {
   display: grid;
-  /* background-color: rgb(42, 218, 113); */
-  grid-template-columns: 15vh 15vh 15vh 15vh 50vh 10vh;
+  grid-template-columns: 15vh 15vh 15vh 15vh 40vh 0vh;
   margin-top: 2.5vh;
   float: right;
 }

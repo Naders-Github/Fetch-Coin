@@ -1,162 +1,185 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useFormik } from 'formik';
+import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
-import * as Yup from 'yup';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import { withStyles } from '@material-ui/core/styles';
+import { Formik, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
-const validationSchema = Yup.object({
-  username: Yup
-    .string('Enter your username')
-    .min(4, 'Enter valid username')
-    .required('Username is required'),
+import {
+  PageWrapper,
+  Title,
+  Label,
+  Input,
+  StyledInlineErrorMessage,
+  Submit,
+  CodeWrapper
+} from "./formStyles.js";
+
+const validationSchema = Yup.object().shape({
+  userName: Yup
+    .string('Enter your user name')
+    .required('❌ User name is required'),
+  firstName: Yup
+    .string('Enter your first name')
+    .required('❌ First name is required'),
+  lastName: Yup
+    .string('Enter your last name')
+    .required('❌ Last name is required'),
   email: Yup
     .string('Enter your email')
-    .email('Enter a valid email')
-    .required('Email is required'),
+    .email('❌ Invalid Email')
+    .required('❌Email is required'),
   password: Yup
     .string('Enter your password')
-    .min(6, 'Password should be of minimum 8 characters length')
-    .required('Password is required'),
-  first: Yup
-    .string('Enter your first name')
-    .required('First name is required'),
-  last: Yup
-    .string('Enter your last name')
-    .required('Last name is required'),
+    .min(8, '❌ Password should be of minimum 8 characters length')
+    .required('❌ Password is required'),
 });
 
-const styles = {
-  root: {
-    background: '#1a1a1c',
-    paddingLeft: '20px',
-  },
-  input: {
-    color: 'white',
-  },
-};
-const SignUp = () => {
-  const dispatch = useDispatch();
+const SignupForm = () => {
   const history = useHistory();
-  const formik = useFormik({
-    initialValues: {
-      username: '',
-      password: '',
-      first: '',
-      last: '',
-      email: '',
-    },
-    validationSchema,
-    onSubmit: (values) => {
-      axios.post(`/api/coins`, {
-        username: values.username,
-        password: values.password,
-        email: values.email,
-        first: values.first,
-        last: values.last,
-      }).then(async () => {
-        const { data } = await axios.get(`/api/coins`, {
-          params: {
-            username: values.username,
-            password: values.password,
-          },
-        });
-        dispatch({ type: 'user', user: data[0] });
-        history.push('/home');
-      });
-    },
-  });
+  const [formValues, setFormValues] = useState('');
+
+  const handleHome = () => {
+    history.push('/home');
+  };
+
+  const handleChange = (event) => {
+    setFormValues(event.target.value);
+  };
 
   return (
-    <div>
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          fullWidth
-          id="first"
-          name="first"
-          label="First Name"
-          type="first"
-          value={formik.values.first}
-          onChange={formik.handleChange}
-          error={formik.touched.first && Boolean(formik.errors.first)}
-          helperText={formik.touched.first && formik.errors.first}
-          defaultValue="color"
-          // className={classes.root}
-          // InputProps={{
-          //   className: classes.input,
-          // }}
-        />
-        <TextField
-          fullWidth
-          id="last"
-          name="last"
-          label="Last name"
-          type="last"
-          value={formik.values.last}
-          onChange={formik.handleChange}
-          error={formik.touched.last && Boolean(formik.errors.last)}
-          helperText={formik.touched.last && formik.errors.last}
-          defaultValue="color"
-          // className={classes.root}
-          // InputProps={{
-          //   className: classes.input,
-          // }}
-        />
-        <TextField
-          fullWidth
-          id="email"
-          name="email"
-          label="Email"
-          type="email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
-          // className={classes.root}
-          // InputProps={{
-          //   className: classes.input,
-          // }}
-        />
-        <TextField
-          fullWidth
-          id="username"
-          name="username"
-          label="Username"
-          value={formik.values.username}
-          onChange={formik.handleChange}
-          error={formik.touched.username && Boolean(formik.errors.username)}
-          helperText={formik.touched.username && formik.errors.username}
-          defaultValue="color"
-          // className={classes.root}
-          // InputProps={{
-          //   className: classes.input,
-          // }}
-        />
-        <TextField
-          fullWidth
-          id="password"
-          name="password"
-          label="Password"
-          type="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
-          defaultValue="color"
-          // className={classes.root}
-          // InputProps={{
-          //   className: classes.input,
-          // }}
-        />
-        <Button color="primary" variant="contained" fullWidth type="submit">
-          <span style={{ color: 'white' }}>Submit</span>
-        </Button>
-      </form>
-    </div>
+    <PageWrapper>
+      <Title className="gradient-text">
+        Signup Form
+      </Title>
+      <Formik
+        initialValues={{
+          userName: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+        }}
+        validationSchema={validationSchema}
+        onSubmit={(values, actions) => {
+          console.log(values);
+          setFormValues(values);
+
+          const timeOut = setTimeout(() => {
+            actions.setSubmitting(false);
+            handleHome(alert('WELCOME IN BITCH'))
+            clearTimeout(timeOut);
+          }, 2500);
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleSubmit,
+          isSubmitting,
+          isValidating,
+          isValid
+        }) => {
+          return (
+            <>
+              <Form name="contact" method="post" onSubmit={handleSubmit}>
+                <Label htmlFor="userName">
+                  User Name
+                  <Input
+                    type="text"
+                    name="userName"
+                    autoCorrect="off"
+                    autoComplete="name"
+                    placeholder="your userName"
+                    // onChange={handleChange}
+                    valid={touched.userName && !errors.userName}
+                    error={touched.userName && errors.userName}
+                  />
+                </Label>
+                {errors.userName && touched.userName && (
+                  <StyledInlineErrorMessage>
+                    {errors.userName}
+                  </StyledInlineErrorMessage>
+                )}
+                <Label htmlFor="firstName">
+                  First Name
+                  <Input
+                    type="text"
+                    name="firstName"
+                    autoCorrect="off"
+                    placeholder="your firstName"
+                    valid={touched.firstName && !errors.firstName}
+                    error={touched.firstName && errors.firstName}
+                  />
+                </Label>
+                {errors.firstName && touched.firstName && (
+                  <StyledInlineErrorMessage>
+                    {errors.firstName}
+                  </StyledInlineErrorMessage>
+                )}
+                <Label htmlFor="lastName">
+                  Last Name
+                  <Input
+                    type="text"
+                    name="lastName"
+                    autoCorrect="off"
+                    autoComplete="name"
+                    placeholder="your lastName"
+                    valid={touched.lastName && !errors.lastName}
+                    error={touched.lastName && errors.lastName}
+                  />
+                </Label>
+                {errors.lastName && touched.lastName && (
+                  <StyledInlineErrorMessage>
+                    {errors.lastName}
+                  </StyledInlineErrorMessage>
+                )}
+                <Label htmlFor="email">
+                  Email
+                  <Input
+                    type="text"
+                    name="email"
+                    autoCapitalize="off"
+                    autoCorrect="off"
+                    autoComplete="email"
+                    placeholder="your email"
+                    valid={touched.email && !errors.email}
+                    error={touched.email && errors.email}
+                  />
+                </Label>
+                <ErrorMessage name="email">
+                  {msg => (
+                    <StyledInlineErrorMessage>{msg}</StyledInlineErrorMessage>
+                  )}
+                </ErrorMessage>
+                <Label htmlFor="password">
+                  Password
+                  <Input
+                    type="text"
+                    name="password"
+                    autoCapitalize="off"
+                    autoCorrect="off"
+                    autoComplete="password"
+                    placeholder="your password"
+                    valid={touched.password && !errors.password}
+                    error={touched.password && errors.password}
+                  />
+                </Label>
+                <ErrorMessage name="password">
+                  {msg => (
+                    <StyledInlineErrorMessage>{msg}</StyledInlineErrorMessage>
+                  )}
+                </ErrorMessage>
+                <Submit type="submit" disabled={!isValid || isSubmitting}>
+                  {isSubmitting ? `Creating Account...` : `Submit`}
+                </Submit>
+              </Form>
+
+            </>
+          );
+        }}
+      </Formik>
+    </PageWrapper>
   );
 };
 
-export default withStyles(styles)(SignUp);
+export default SignupForm;

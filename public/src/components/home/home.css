@@ -53,4 +53,10 @@
 
 .watched-coin-row {
   font-size: 2vh;
+  border: solid 1px;
+}
+
+.watched-coin-image {
+  width: 5vh;
+  height: 5vh;
 }

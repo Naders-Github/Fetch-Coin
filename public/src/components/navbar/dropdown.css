@@ -121,9 +121,11 @@ h4 {
 
 #dropdown-logout {
   cursor: pointer;
+  margin: 0vh 0vh 0vh -5vh;
 }
 #dropdown-profile {
   cursor: pointer;
+  margin: -4vh 0vh 0vh -5vh;
 }
 .account-icon:hover {
   background-color: #4801ff;

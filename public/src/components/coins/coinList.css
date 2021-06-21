@@ -1,72 +1,13 @@
+/* =========== Coin List ===========*/
+
 .coin-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #fff;
   max-width: 75%;
-  margin-left: 25vh;
-}
-
-.coin-search {
-  margin-top: -1vh;
-}
-
-.description {
-  margin: 1vh 1vh -5vh 38vh;
+  margin: 7vh 0vh 0vh 28vh;
   float: left;
-  font-size: 3vh;
-}
-
-.coin-description {
-  margin-right: 33vh;
-}
-.price-description {
-  margin-right: 20vh;
-}
-.volume-description {
-  margin-right: 12vh;
-}
-.highLow-description {
-  margin-right: 11vh;
-}
-.marketCap-description {
-  margin-right: 2vh;
-}
-
-.coin-text {
-  margin-right: 33vh;
-  text-align: center;
-  background-color: #4801ff;
-   background-image: linear-gradient(
-        45deg,
-        #ac32e4 100%,
-        #7918f2 48%,
-        #4801ff 0%,);
-
-  background-size: 100%;
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.coin-input {
-  padding-left: 16px;
-  width: 300px;
-  height: 39px;
-  border-radius: 4px;
-  border: none;
-  background-image: linear-gradient(
-    -225deg,
-    #ac32e4 0%,
-    #7918f2 48%,
-    #4801ff 100%
-  );
-
-  color: #e2e2e2;
-}
-
-.coin-input::placeholder {
-  color: #e2e2e2;
 }
 
 .coin-list {
@@ -85,17 +26,6 @@
   width: 155vh;
 }
 
-.coin {
-  display: flex;
-  align-items: center;
-  padding-right: 24px;
-  min-width: 31vh;
-}
-
-.coinName {
-  font-size: 16px;
-  width: 150px;
-}
 .details-button {
   padding-inline: 3vh;
   padding: 6px 6px 6px 6px;
@@ -107,7 +37,9 @@
   text-decoration: none;
   border-radius: 12px;
   margin-left: 2vh;
+  color: white;
 }
+
 .details-button:hover {
   padding-inline: 3vh;
   padding: 6px 6px 6px 6px;
@@ -122,16 +54,11 @@
   text-decoration: underline;
 }
 
-.outlined-star {
-  border: yellow;
-}
-
-.filled-star {
-  color: yellow;
-}
-
-.scrollable-element {
-  scrollbar-color: blue;
+.coin {
+  display: flex;
+  align-items: center;
+  padding-right: 24px;
+  min-width: 31vh;
 }
 
 .coin img {
@@ -139,6 +66,11 @@
   width: 30px;
   margin-right: 2vh;
   margin-left: 2vh;
+}
+
+.coinName {
+  font-size: 16px;
+  width: 150px;
 }
 
 .coin-symbol {
@@ -162,14 +94,6 @@
   width: 155px;
 }
 
-.coin-marketcap {
-  margin-right: 3vh;
-}
-
-.coin-percent {
-  width: 100px;
-}
-
 .red {
   color: #f00606;
 }
@@ -178,37 +102,72 @@
   color: #11d811;
 }
 
-.chart {
-  width: 10vh;
-  height: 10vh;
+.coin-marketcap {
+  margin-right: 3vh;
 }
 
-.left-column {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #1a1a1c;
-  color: #fff;
-  width: 46vh;
+/*========== Coin Search ===========*/
+
+.coin-search {
+  margin-top: -1vh;
 }
 
-.detail-right-column {
-  float: right;
-  max-width: 51%;
-  width: 50%;
-  margin: -26vh 0vh 0vh 0vh;
+.coin-text {
+  margin-right: 33vh;
+  text-align: center;
+  background-color: #4801ff;
+  background-image: linear-gradient(
+      45deg,
+      #ac32e4 100%,
+      #7918f2 48%,
+      #4801ff 0%,);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.coin-input {
+  padding-left: 16px;
+  width: 300px;
+  height: 39px;
+  border-radius: 4px;
+  border: none;
+  background-image: linear-gradient(
+    -225deg,
+    #ac32e4 0%,
+    #7918f2 48%,
+    #4801ff 100%
+  );
+  color: #e2e2e2;
 }
 
-.home-icon {
-  cursor: pointer;
+.coin-input::placeholder {
+  color: #e2e2e2;
 }
-.trade-icon {
-  cursor: pointer;
+/* ========= Coin Description =========*/
+
+.description {
+  margin: 10vh 1vh -15vh 41vh;
+  float: left;
+  font-size: 3vh;
 }
-.coin-icon {
-  cursor: pointer;
+
+.coin-description {
+  margin-right: 38vh;
 }
-.note-icon {
-  cursor: pointer;
+
+.price-description {
+  margin-right: 15vh;
+}
+
+.volume-description {
+  margin-right: 14vh;
+}
+
+.highLow-description {
+  margin-right: 11vh;
+}
+
+.marketCap-description {
+  margin-right: 2vh;
 }

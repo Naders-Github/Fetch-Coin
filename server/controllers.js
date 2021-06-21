@@ -9,13 +9,27 @@ const controllers = {
     })
     .catch((err) => console.error(err));
   },
+  getTrendingCurrency: (req, res) => {
+    axios.get(`https://api.coingecko.com/api/v3/search/trending`)
+    .then((response) => {
+      res.status(200).send(response.data);
+    })
+    .catch((err) => console.error(err));
+  },
   getMarket: (req, res) => {
     axios.get(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=days`)
       .then((response) => {
         res.status(200).send(response.data);
       })
       .catch((err) => console.error(err));
-  }
+  },
+  getUserStatus: (req, res) => {
+    axios.get(`https://api.coingecko.com/api/v3/status_updates`)
+      .then((response) => {
+        res.status(200).send(response.data);
+      })
+      .catch((err) => console.error(err));
+  },
 };
 
 module.exports = controllers;

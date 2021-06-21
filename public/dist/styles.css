@@ -1,64 +1,138 @@
+:root {
+  --desktop: 1200px;
+  --laptop: 1024px;
+  --tablet: 768px;
+  --phone: 480px;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #1a1a1c;
-  color: #fff;
-}
+  body {
+    /* box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1a1c;
+    color: #fff; */
+  }
 
-.gradient-text {
-  background-color: #4801ff;
-   background-image: linear-gradient(
-        45deg,
-        #ac32e4 100%,
-        #7918f2 48%,
-        #4801ff 0%,);
+  .gradient-text {
+    background-color: #4801ff;
+    background-image: linear-gradient(
+          45deg,
+          #ac32e4 100%,
+          #7918f2 48%,
+          #4801ff 0%,);
 
-  background-size: 100%;
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 3vh 0vh 4vh 8vh;
-}
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 3vh 0vh 4vh 8vh;
+  }
+  .landing-gradient-text {
+    float: left;
+    background-color: #4801ff;
+    background-image: linear-gradient(
+          45deg,
+          #ac32e4 100%,
+          #7918f2 48%,
+          #4801ff 0%,);
 
-.gradient-text:hover{
-    animation: rainbow-text-simple-animation 0.5s ease-in forwards;
-}
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 3vh 0vh 4vh -80vh;
+  }
 
-h1 {
-  font-size: 72px;
-  background: -webkit-linear-gradient(#eee, #333);
-  -webkit-text-fill-color: transparent;
-  margin: 2vh 4vh;
-}
-h2 {
-  font-size: 36px;
-  background: -webkit-linear-gradient(#eee, #333);
-  -webkit-text-fill-color: transparent;
-}
-h3 {
-  font-size: 18px;
-  background: -webkit-linear-gradient(#eee, #333);
-  -webkit-text-fill-color: transparent;
-}
+  .gradient-text:hover{
+      animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+  }
 
-.landing-buttons {
-  font-size: 10vh;
-  cursor: pointer;
-}
+  .landing-coin-search {
+    margin: 1vh 0vh 1vh -33vh;
+  }
 
-body {
-  background-color: #263238;
-}
+  .landing-coin-input {
+    padding-left: 16px;
+    width: 300px;
+    height: 39px;
+    border-radius: 4px;
+    border: none;
+    background-image: linear-gradient(
+      -225deg,
+      #ac32e4 0%,
+      #7918f2 48%,
+      #4801ff 100%
+    );
 
-canvas {
-  max-width: 120vh;
-}
+    color: #e2e2e2;
+  }
 
-.coin-list {
-  margin: 10vh;
-}
+  /* h1 {
+    font-size: 72px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-text-fill-color: transparent;
+    margin: 2vh 4vh;
+  } */
+  /* h2 {
+    font-size: 36px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-text-fill-color: transparent;
+  }
+  h3 {
+    font-size: 18px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-text-fill-color: transparent;
+  } */
+
+  .landing-icons {
+    display: grid;
+    /* background-color: rgb(42, 218, 113); */
+    margin-top: 6.5vh;
+  }
+
+  .landing-search-icon {
+    margin: 0vh 20vh 0vh -27vh;
+  }
+
+  .signup-button {
+    margin: 0vh 20vh 0vh 0vh;
+  }
+
+  .login-button {
+    margin: 0vh 20vh 0vh 0vh;
+  }
+
+  .guest-button {
+    margin: 0vh 20vh 0vh 0vh;
+  }
+
+
+  .modal-background {
+    background-color: #4801ff;
+    background-image: linear-gradient(
+          45deg,
+          #ac32e4 100%,
+          #7918f2 48%,
+          #4801ff 0%,);
+
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    margin: 3vh 0vh 4vh 8vh;
+  }
+
+  body {
+    background-color: #263238;
+  }
+
+  canvas {
+    max-width: 120vh;
+  }
+
+  .coin-list {
+    margin: 10vh;
+  }

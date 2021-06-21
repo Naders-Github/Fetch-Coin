@@ -69,8 +69,6 @@ const CoinDetailPage = () => {
     fetchData();
   }, []);
 
-  console.log(coinData)
-
   const renderData = () => {
     if (isLoading) {
       return <div>Loading....</div>;

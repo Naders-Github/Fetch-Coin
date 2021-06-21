@@ -96,11 +96,10 @@ const slideHorizontalAnimation = {
 const DropDown = () => {
   const [isopen, toggleDropdown] = useCycle(false, true);
   const history = useHistory();
-  // const user = useSelector((state) => state.userReducer.user);
 
-  // const handleUser = () => {
-  //   history.push('/user');
-  // };
+  const handleProfile = () => {
+    history.push('/profile');
+  };
 
   const handleLogOut = () => {
     history.push('/');
@@ -121,11 +120,7 @@ const DropDown = () => {
         >
           <motion.div className={`${DropDownStyle.menu} ${DropDownStyle.menu_sizes}`}>
             <div className={DropDownStyle.title}>
-              {/* <Avatar> */}
-                {/* {`${user.first_name.slice(0, 1)}${user.last_name.slice(0, 1)}`} */}
-              {/* </Avatar> */}
               <h4 className={DropDownStyle.title_text}>
-                {/* {user.first_name} */}
               </h4>
             </div>
 
@@ -133,7 +128,7 @@ const DropDown = () => {
               <li
                 className={DropDownStyle.item}
                 id="dropdown-profile"
-                // onClick={handleUser}
+                onClick={handleProfile}
               >
                 Profile
               </li>

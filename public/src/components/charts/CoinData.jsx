@@ -1,15 +1,9 @@
 import React, { useContext } from "react";
-import { useSelector } from 'react-redux';
-import { Link } from "react-router-dom";
 import { WatchListContext } from "../../context/watchListContext";
 import '../coinDetails/coinDetails.css';
 
 const CoinData = ({ data }) => {
-  console.log(data)
   const { addCoin, watchList, deleteCoin } = useContext(WatchListContext);
-  const days = useSelector((state) => state.dayReducer.day);
-  const weeks = useSelector((state) => state.weekReducer.week);
-  const years = useSelector((state) => state.yearReducer.year);
 
   const handleClick = (item) => {
     alert(`${data.name} has been added to your watch list!`)
