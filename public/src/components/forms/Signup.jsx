@@ -65,7 +65,7 @@ const SignupForm = () => {
 
           const timeOut = setTimeout(() => {
             actions.setSubmitting(false);
-            handleHome(alert('WELCOME IN BITCH'))
+            handleHome(alert('WELCOME TO FETCH COIN!!'))
             clearTimeout(timeOut);
           }, 2500);
         }}

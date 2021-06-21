@@ -30,7 +30,7 @@ export const WatchListContextProvider = (props) => {
       setWatchList([...watchList, coin]);
     }
   };
-  console.log('WATCHLIST', watchList)
+
   return (
     <WatchListContext.Provider value={{ watchList, deleteCoin, addCoin }}>
       {props.children}

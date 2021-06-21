@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
+import { useSelector } from 'react-redux';
 import { WatchListContext } from "../../context/watchListContext";
 import '../coinDetails/coinDetails.css';
 
 const CoinData = ({ data }) => {
   const { addCoin, watchList, deleteCoin } = useContext(WatchListContext);
+  const moreCoins = useSelector((state) => state.moreCoinsReducer.moreCoins);
 
   const handleClick = (item) => {
     alert(`${data.name} has been added to your watch list!`)

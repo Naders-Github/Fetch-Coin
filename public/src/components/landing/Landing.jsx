@@ -18,6 +18,7 @@ const LandingPage = () => {
   useEffect(() => {
     coinGecko.get('/coins')
       .then(({ data }) => {
+        setCoins(data)
         dispatch({ type: 'coins', coins: data });
       })
       .catch((err) => console.error(err));
@@ -26,7 +27,6 @@ const LandingPage = () => {
   useEffect(() => {
     coinGecko.get('/search/trending')
       .then(({ data }) => {
-        console.log('TRENDING', data)
         dispatch({ type: 'trendingCoins', trendingCoins: data.coins });
       })
       .catch((err) => console.error(err));
