@@ -2,7 +2,7 @@ const router = require('express').Router();
 const controllers = require('./controllers.js');
 
 router
-  .route('/coins')
+  .route('/coins/:id')
   .get(controllers.getCryptoCurrency)
 
 router

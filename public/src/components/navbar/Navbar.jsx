@@ -8,14 +8,15 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import SyncAltIcon from '@material-ui/icons/SyncAlt';
 import Dropdown from './Dropdown.jsx';
 import SearchIcon from '@material-ui/icons/Search';
-import styles from './navbar.css';
+import logo from '../landing/FetchLogo.png';
+import './navbar.css';
 
 const NavBar = ({ filteredCoins, handleChange, search }) => {
   const history = useHistory();
   const [toggle, setToggle] = useState(false);
 
   const handleSearchClick = () => {
-    setToggle(!toggle)
+    setToggle(!toggle);
   }
 
   const handleHome = () => {
@@ -36,12 +37,9 @@ const NavBar = ({ filteredCoins, handleChange, search }) => {
 
   return (
     <div>
-      <Navbar sticky="top" className="navbar">
+      <img className="logo" src={logo} />
+      <Navbar sticky="top" id="navbar">
         <div className="icons">
-          <HomeIcon onClick={handleHome} className="home-icon" />
-          <SyncAltIcon onClick={handleTrade} className="trade-icon" />
-          <MonetizationOnIcon onClick={handleCoins} className="coin-icon" />
-          <NotificationsIcon onClick={handleNotifications} className="note-icon" />
           {!toggle ? (
             <SearchIcon onClick={handleSearchClick} className="search-icon" />
           ) : (
@@ -49,10 +47,13 @@ const NavBar = ({ filteredCoins, handleChange, search }) => {
               <input className="coin-input" type="text" onChange={handleChange} placeholder="Fetch Coins..." />
             </div>
           )}
+          <HomeIcon onClick={handleHome} className="home-icon" />
+          <SyncAltIcon onClick={handleTrade} className="trade-icon" />
+          <MonetizationOnIcon onClick={handleCoins} className="coin-icon" />
+          <NotificationsIcon onClick={handleNotifications} className="note-icon" />
           <Dropdown />
         </div>
       </Navbar>
-      <h1 className="gradient-text">Fetch Coin</h1>
     </div>
   )
 };

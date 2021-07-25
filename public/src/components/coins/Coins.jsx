@@ -7,13 +7,14 @@ import './coinList.css'
 
 const Coins = () => {
   const [search, setSearch] = useState('');
-  const moreCoins = useSelector((state) => state.moreCoinsReducer.moreCoins);
+  const coins = useSelector((state) => state.coinsReducer.coins);
   const users = useSelector((state) => state.usersReducer.users);
+
   const handleChange = (event, value) => {
     setSearch(event.target.value);
   };
 
-  const filteredCoins = moreCoins.filter((coin) => {
+  const filteredCoins = coins.filter((coin) => {
     return coin.name.toLowerCase().includes(search.toLowerCase());
   });
 
@@ -24,7 +25,7 @@ const Coins = () => {
           <span className="coin-description">Coin</span>
           <span className="price-description">Price</span>
           <span className="volume-description">Volume</span>
-          <span className="highLow-description">High/Low</span>
+          <span className="highLow-description">24h</span>
           <span className="marketCap-description">Market Cap</span>
         </div>
       <div className="coin-container">

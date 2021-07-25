@@ -38,25 +38,25 @@ const CoinsList = ({ coin }) => {
         Details
       </Link>
       <div className='coin'>
-        <img src={coin.image} alt='crypto' />
+        <img src={coin.image.thumb} alt='crypto' />
         <p className="coinName">{coin.name}</p>
         <p className='coin-symbol'>{coin.symbol}</p>
       </div>
       <div className='coin-data'>
-        <p className="coin-price">${coin.current_price > 0 ? (
-          coin.current_price.toLocaleString()
+        <p className="coin-price">${coin.market_data.current_price.usd > 0 ? (
+          coin.market_data.current_price.usd.toLocaleString()
         ) : (
-          Math.round(coin.current_price * 100000000) / 100000000
+          Math.round(coin.market_data.current_price.usd * 100000000) / 100000000
         )}
         </p>
-        <p className='coin-volume'>${coin.total_volume.toLocaleString()}</p>
+        <p className='coin-volume'>${coin.market_data.total_volume.usd.toLocaleString()}</p>
         {
-          coin.market_cap_change_percentage_24h < 0
-            ? <span className="red">{Math.round(coin.market_cap_change_percentage_24h.toLocaleString() * 10) / 10}%</span>
-            : <span className="green">{Math.round(coin.market_cap_change_percentage_24h.toLocaleString() * 10) / 10}%</span>
+          coin.market_data.market_cap_change_percentage_24h < 0
+            ? <span className="red">{Math.round(coin.market_data.market_cap_change_percentage_24h.toLocaleString() * 10) / 10}%</span>
+            : <span className="green">{Math.round(coin.market_data.market_cap_change_percentage_24h.toLocaleString() * 10) / 10}%</span>
         }
         <p className='coin-marketcap'>
-          Cap: ${coin.market_cap.toLocaleString()}
+          ${coin.market_data.market_cap.usd.toLocaleString()}
         </p>
       </div>
     </div>

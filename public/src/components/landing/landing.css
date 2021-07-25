@@ -1,70 +1,4 @@
-:root {
-  --font-family-primary: 'Roboto', sans-serif;
-  --font-family-accent: 'Playfair Display', serif;
-}
-
-*,
-*::before
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: var(--font-family-primary);
-  font-weight: 400;
-  font-size: 1.3125rem;
-  line-height: 1.6;
-  color: #fff;
-  box-sizing: border-box;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  background: linear-gradient(132deg, #212335, black);
-  background-size: 400% 400%;
-  animation: Gradient 20s ease infinite;
-  animation-direction: normal;
-}
-
-/* ========== HTML Elements ===========*/
-
-body,
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-}
-
-h1 {
-  font-size: 45px;
-  background: -webkit-linear-gradient(#eee, #333);
-  -webkit-text-fill-color: transparent;
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-h2 {
-  font-size: 36px;
-  background: -webkit-linear-gradient(#eee, rgb(160, 160, 160));
-  -webkit-text-fill-color: transparent;
-}
-h3 {
-  font-size: 25px;
-  font-weight: 900;
-  background: -webkit-linear-gradient(rgb(134, 109, 142), #eee);
-  -webkit-text-fill-color: transparent;
-  background-size: 100%;
-  background-repeat: repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-img {
-  display: block;
-  max-width: 75%;
-}
+/*=============== MEDIA QUERIES ===============*/
 
 header,
 section {
@@ -75,47 +9,6 @@ section {
       padding: 7rem 0;
     }
   }
-}
-
-/* =========== Attributes ==========*/
-
-.text-center {
-  text-align: center;
-}
-
-.container {
-  margin-inline: auto;
-  width: min(80%, 70.5rem);
-  display: flex;
-  font-size: 2vh;
-  font-weight: 500;
-}
-
-.market-container {
-  margin-inline: auto;
-  width: min(80%, 70.5rem);
-  display: flex;
-}
-
-.button-container {
-  margin-inline: auto;
-  width: min(85%, 70.5rem);
-  float: right;
-}
-
-.navbar {
-  display: flex;
-  color: white;
-  margin-top: 2vh;
-  width: min(90%, 70.5rem);
-}
-
-.split {
-  display: flex;
-  flex-direction: row;
-  border: solid;
-  max-width: 50vh;
-  width: 50vh;
 }
 
 @media (min-width: 45em) {
@@ -166,122 +59,163 @@ section {
   }
 }
 
-/* .navbar--narrow {
-  max-width: 34rem;
-} */
-/* ============= Landing Title ============*/
-.landing-title {
-  float: left;
-}
-
-
-/* ============= Landing Buttons ============*/
-
-.button-container {
-  float: right;
-}
-
 @media (min-width: 40em) and (max-width: 1000em) {
   .landing-buttons {
     height: 1px;
-    margin: 2vh 0vh 0vh 0vh;
-    color: white;
+    margin: 15vh 0vh 0vh 45vh;
+    color: #212335;
+    display: grid;
+    grid-template-columns: 20vh 20vh 20vh 20vh 20vh;
+  }
+
+/* =========== Attributes ==========*/
+
+.landing {
+  display: flex;
+  justify-content: space-around;
+  float: left;
+  margin-top: -1vh;
+  margin-left: -1vh;
+  font: icon;
+  font-size: 23px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container {
+  margin-inline: auto;
+  width: min(80%, 70.5rem);
+  display: flex;
+  font-size: 2vh;
+  font-weight: 500;
+}
+
+.market-container {
+  margin-inline: auto;
+  width: min(80%, 70.5rem);
+  display: flex;
+}
+
+.button-container {
+  margin-inline: auto;
+  width: min(85%, 70.5rem);
+  float: right;
+}
+
+.navbar {
+  display: flex;
+  color: #212335;
+  width: 200vh;
+  background: #fff;
+  height: 23vh;
+  margin-top: -23vh;
+}
+
+.split {
+  border: solid;
+  max-width: 50vh;
+  width: 50vh;
+}
+
+.navbar--narrow {
+  max-width: 34rem;
+}
+
+/* ============= Landing Buttons ============*/
+
+  .signInUpButtons {
     float: right;
+    margin: -4vh 13vh 0vh 0vh;
+    font: icon;
   }
 
   .signup-button {
     cursor: pointer;
+    font: icon;
+    font-size: 2.3vh;
   }
-  .login-button {
+  #login-button {
     cursor: pointer;
+    margin-left: 2vh;
+    background-color: #212335;
+    color: #fff;
+    width: 12vh;
+    height: 5vh;
+    font-size: 30px;
+    border-radius: 15px;
   }
-  .price-button {
-   cursor: pointer;
-  }
-  .career-button {
-   cursor: pointer;
-  }
-  .company-button {
-   cursor: pointer;
-  }
-  .developers-button {
-   cursor: pointer;
+  .landing-button {
+    cursor: pointer;
+    font: icon;
+    font-size: 2.3vh;
   }
 }
 
-/* ============== Landing-Details ===============*/
+/*=========== Body ===========*/
 
-.landing-list {
-  max-width: 70vh;
+.right-column {
+  float: right;
+  max-width: 50%;
+}
+
+.left-column {
+  float: left;
+  max-width: 50%;
+  margin-top: 15vh;
+}
+
+.phone-photo {
+  object-fit: contain;
+  height: 65vh;
   width: 65vh;
-  max-height: 30vh;
+  margin-right: 20vh;
+  margin-top: 10vh;
 }
 
-.landing-coin-row {
-  display: flex;
-  height: 55px;
-  border-bottom: 1px solid #d7d7d7;
-  width: 117vh;
-  margin: 1vh 1vh 1vh 40vh;
+.sub-heading {
+  margin: 2vh 0vh 5vh 25vh;
+  max-width: 45vh;
 }
 
-.landing-coin {
-  display: flex;
+.heading {
+  margin: 0vh 0vh 5vh 25vh;
+  max-width: 50vh;
+  font-size: 7vh;
 }
 
-.landing-details-button {
-  margin: 1vh 10vh 1vh 1vh;
+#body-signin-button {
+    cursor: pointer;
+    background-color: #fff;
+    color: #212335;
+    width: 13vh;
+    height: 50px;
+    font-size: 30px;
+    float: right;
+    margin-top: 2vh;
+    margin-right: 3vh;
 }
 
-.landing-coin-name {
-  margin: 0vh 17vh 0vh 0vh;
+.email-container {
+  margin: 0vh 0vh 0vh 25vh;
 }
 
-.landing-coin-price {
-  margin: 0vh 17vh 0vh 0vh;
+#email-input {
+  height: 43px;
+  margin-right: 2vh;
+  margin-bottom: 0vh;
+  width: 30vh;
+  float: right;
+  margin-top: 2vh;
+  padding-inline: 1vh;
 }
 
-.landing-list-image {
-  width: 5vh;
-  height: 5vh;
+::-webkit-input-placeholder {
+  font-size: 3vh;
+  bottom: 0px;
 }
 
-.landing-list-row {
-  display: flex;
-  flex-direction: column;
-}
-
-.landing-volume-image {
-  width: 10vh;
-  height: 10vh;
-  display: inline;
-}
-
-.red {
-  color: red;
-}
-.green {
-  color: green;
-}
-/* =============Animate Background===============*/
-@keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes cube {
-  from {
-    transform: scale(0) rotate(0deg) translate(-50%, -50%);
-    opacity: 1;
-  }
-  to {
-    transform: scale(20) rotate(960deg) translate(-50%, -50%);
-    opacity: 0;
-  }
+#home {
+  margin-top: -2vh;
 }
