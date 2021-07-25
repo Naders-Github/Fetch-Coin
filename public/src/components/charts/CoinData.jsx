@@ -14,7 +14,7 @@ const CoinData = ({ data }) => {
 
   const handleDeleteClick = (item) => {
     alert(`${data.name} has been deleted from your watch list!`)
-    deleteCoin(item)
+    deleteCoin(item);
   }
 
   const renderData = () => {

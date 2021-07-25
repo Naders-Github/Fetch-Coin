@@ -22,8 +22,8 @@ const WatchList = ({ coin, deleteCoin }) => {
         Details
       </Link>
       <i
-        onClick={(e) => {
-          e.preventDefault();
+        onClick={(event) => {
+          event.preventDefault();
           deleteCoin(coin.id);
         }}
         className="delete-icon far fa-times-circle text-danger"

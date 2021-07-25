@@ -1,138 +1,83 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap'); */
+
 :root {
-  --desktop: 1200px;
-  --laptop: 1024px;
-  --tablet: 768px;
-  --phone: 480px;
+  --font-family-primary: 'Roboto', sans-serif;
+  --font-family-accent: 'Playfair Display', serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
+*,
+*::before
+*::after {
+  box-sizing: border-box;
+}
 
-  body {
-    /* box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #1a1a1c;
-    color: #fff; */
+body {
+  font-family: var(--font-family-primary);
+  /* font-weight: 200; */
+  font-size: 1.9vh;
+  line-height: 1.6;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  /* background: linear-gradient(132deg, #212335, black); */
+  background-color: #212335;
+  background-size: 400% 400%;
+  animation: Gradient 20s ease infinite;
+  animation-direction: normal;
+  color: #fff;
+}
+
+/* h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 45px;
+  margin: -3vh 0vh 0vh 10vh;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-text-fill-color: transparent;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 36px;
+  background: -webkit-linear-gradient(#eee, rgb(160, 160, 160));
+  -webkit-text-fill-color: transparent;
+}
+h3 {
+  font-size: 25px;
+  font-weight: 900;
+  background: -webkit-linear-gradient(rgb(134, 109, 142), #eee);
+  -webkit-text-fill-color: transparent;
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
+
+.logo {
+  object-fit: contain;
+  height: 14vh;
+  margin-top: 1vh;
+  margin-left: 10vh;
+}
+/* =============Animate Background===============*/
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
   }
-
-  .gradient-text {
-    background-color: #4801ff;
-    background-image: linear-gradient(
-          45deg,
-          #ac32e4 100%,
-          #7918f2 48%,
-          #4801ff 0%,);
-
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 3vh 0vh 4vh 8vh;
+  50% {
+    background-position: 100% 50%;
   }
-  .landing-gradient-text {
-    float: left;
-    background-color: #4801ff;
-    background-image: linear-gradient(
-          45deg,
-          #ac32e4 100%,
-          #7918f2 48%,
-          #4801ff 0%,);
-
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 3vh 0vh 4vh -80vh;
+  100% {
+    background-position: 0% 50%;
   }
-
-  .gradient-text:hover{
-      animation: rainbow-text-simple-animation 0.5s ease-in forwards;
-  }
-
-  .landing-coin-search {
-    margin: 1vh 0vh 1vh -33vh;
-  }
-
-  .landing-coin-input {
-    padding-left: 16px;
-    width: 300px;
-    height: 39px;
-    border-radius: 4px;
-    border: none;
-    background-image: linear-gradient(
-      -225deg,
-      #ac32e4 0%,
-      #7918f2 48%,
-      #4801ff 100%
-    );
-
-    color: #e2e2e2;
-  }
-
-  /* h1 {
-    font-size: 72px;
-    background: -webkit-linear-gradient(#eee, #333);
-    -webkit-text-fill-color: transparent;
-    margin: 2vh 4vh;
-  } */
-  /* h2 {
-    font-size: 36px;
-    background: -webkit-linear-gradient(#eee, #333);
-    -webkit-text-fill-color: transparent;
-  }
-  h3 {
-    font-size: 18px;
-    background: -webkit-linear-gradient(#eee, #333);
-    -webkit-text-fill-color: transparent;
-  } */
-
-  .landing-icons {
-    display: grid;
-    /* background-color: rgb(42, 218, 113); */
-    margin-top: 6.5vh;
-  }
-
-  .landing-search-icon {
-    margin: 0vh 20vh 0vh -27vh;
-  }
-
-  .signup-button {
-    margin: 0vh 20vh 0vh 0vh;
-  }
-
-  .login-button {
-    margin: 0vh 20vh 0vh 0vh;
-  }
-
-  .guest-button {
-    margin: 0vh 20vh 0vh 0vh;
-  }
-
-
-  .modal-background {
-    background-color: #4801ff;
-    background-image: linear-gradient(
-          45deg,
-          #ac32e4 100%,
-          #7918f2 48%,
-          #4801ff 0%,);
-
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    margin: 3vh 0vh 4vh 8vh;
-  }
-
-  body {
-    background-color: #263238;
-  }
-
-  canvas {
-    max-width: 120vh;
-  }
-
-  .coin-list {
-    margin: 10vh;
-  }
+}

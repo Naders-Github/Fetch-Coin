@@ -20,6 +20,7 @@ export const PageWrapper = styled.section`
   max-width: 35em;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 10vh;
   padding: 1rem 0.75rem;
   border: 1px solid lightgrey;
   border-radius: 4px;
@@ -52,6 +53,7 @@ export const Title = styled.h1`
 export const Label = styled.label`
   margin-top: 1.0rem;
   width: 100%;
+  cursor: pointer;
 `;
 
 export const Input = styled(FilteredPropsInputField)`
