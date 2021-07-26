@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../apis/coinGecko.js';
+import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import LandingList from './LandingList.jsx';
 import LandingCoins from './LandingCoins.jsx';
 import SearchIcon from '@material-ui/icons/Search';
 import LandingNavbar from './LandingNavbar.jsx';
-import phonePhoto from './iphone.png'
+import phonePhoto from '../../../images/iphone.png';
 import './landing.css';
 
 const LandingPage = () => {
+  const history = useHistory();
   const [search, setSearch] = useState('');
   const coins = useSelector((state) => state.coinsReducer.coins);
   const [toggle, setToggle] = useState(false);
@@ -51,6 +53,10 @@ const LandingPage = () => {
     setToggle(true);
   };
 
+  const handleSignupAuth = () => {
+    history.push('/signup');
+  };
+
   return (
     <div>
       <LandingNavbar />
@@ -60,8 +66,8 @@ const LandingPage = () => {
       <div className="left-column">
         <h1 className="heading">Get $10 in free Bitcoin for signing up today</h1>
         <h3 className="sub-heading">Fetch Coin is an easy platform to buy and sell cryptocurrency. Get started today.</h3>
-          <button id="body-signin-button" type="submit" ><b>Sign in</b></button>
-          <input id="email-input" type="text" placeholder="Email" />
+          <button id="body-signin-button" type="submit" onClick={handleSignupAuth}><b>Get started</b></button>
+          {/* <input id="email-input" type="text" placeholder="Email" /> */}
       </div>
       {/* <LandingCoins />
       <div className="">

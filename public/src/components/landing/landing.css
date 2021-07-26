@@ -61,19 +61,13 @@ section {
 
 @media (min-width: 40em) and (max-width: 1000em) {
   .landing-buttons {
-    height: 1px;
-    margin: 15vh 0vh 0vh 45vh;
+    margin-top: 12px;
     color: #212335;
-    display: grid;
-    grid-template-columns: 20vh 20vh 20vh 20vh 20vh;
   }
 
 /* =========== Attributes ==========*/
 
 .landing {
-  display: flex;
-  justify-content: space-around;
-  float: left;
   margin-top: -1vh;
   margin-left: -1vh;
   font: icon;
@@ -81,13 +75,12 @@ section {
 }
 
 .text-center {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .container {
   margin-inline: auto;
   width: min(80%, 70.5rem);
-  display: flex;
   font-size: 2vh;
   font-weight: 500;
 }
@@ -95,13 +88,14 @@ section {
 .market-container {
   margin-inline: auto;
   width: min(80%, 70.5rem);
-  display: flex;
 }
 
 .button-container {
   margin-inline: auto;
   width: min(85%, 70.5rem);
-  float: right;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 4vh;
 }
 
 .navbar {
@@ -109,8 +103,9 @@ section {
   color: #212335;
   width: 200vh;
   background: #fff;
-  height: 23vh;
-  margin-top: -23vh;
+  height: 12vh;
+  margin-top: -1vh;
+  margin-left: -1vh;
 }
 
 .split {
@@ -124,18 +119,29 @@ section {
 }
 
 /* ============= Landing Buttons ============*/
+.logo-container {
+  float: left;
+}
 
+.logo {
+  cursor: pointer;
+  object-fit: contain;
+  margin-right: 10vh;
+  height: 10vh;
+  margin-left: 7vh;
+  margin-top: 1vh;
+}
   .signInUpButtons {
     float: right;
-    margin: -4vh 13vh 0vh 0vh;
     font: icon;
   }
 
-  .signup-button {
+  .signin-button {
+    color: #212335;
     cursor: pointer;
-    font: icon;
     font-size: 2.3vh;
   }
+
   #login-button {
     cursor: pointer;
     margin-left: 2vh;
@@ -143,7 +149,7 @@ section {
     color: #fff;
     width: 12vh;
     height: 5vh;
-    font-size: 30px;
+    font-size: 2vh;
     border-radius: 15px;
   }
   .landing-button {
@@ -186,15 +192,13 @@ section {
 }
 
 #body-signin-button {
-    cursor: pointer;
-    background-color: #fff;
-    color: #212335;
-    width: 13vh;
-    height: 50px;
-    font-size: 30px;
-    float: right;
-    margin-top: 2vh;
-    margin-right: 3vh;
+  cursor: pointer;
+  background-color: #fff;
+  color: #212335;
+  width: 22vh;
+  height: 6vh;
+  font-size: 30px;
+  margin-left: 25vh;
 }
 
 .email-container {
@@ -203,7 +207,7 @@ section {
 
 #email-input {
   height: 43px;
-  margin-right: 2vh;
+  margin-right: -15vh;
   margin-bottom: 0vh;
   width: 30vh;
   float: right;

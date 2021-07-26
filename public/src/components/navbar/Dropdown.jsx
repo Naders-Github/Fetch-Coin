@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { motion, useCycle } from 'framer-motion';
 import Avatar from '@material-ui/core/Avatar';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import firebase from '../../firebase/firebase.js';
 import DropDownStyle from './dropdown.css';
 
 const Path = (props) => (
@@ -101,7 +102,9 @@ const DropDown = () => {
     history.push('/profile');
   };
 
-  const handleLogOut = () => {
+  const handleSignout = () => {
+    firebase.auth().signOut();
+    alert('Successfully signed out')
     history.push('/');
   };
 
@@ -135,7 +138,7 @@ const DropDown = () => {
               <li
                 className={DropDownStyle.item}
                 id="dropdown-logout"
-                onClick={handleLogOut}
+                onClick={handleSignout}
               >
                 Logout
               </li>

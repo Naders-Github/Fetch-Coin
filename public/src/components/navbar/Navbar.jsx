@@ -8,7 +8,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import SyncAltIcon from '@material-ui/icons/SyncAlt';
 import Dropdown from './Dropdown.jsx';
 import SearchIcon from '@material-ui/icons/Search';
-import logo from '../landing/FetchLogo.png';
+import logo from '../../../images/FetchLogo.png';
 import './navbar.css';
 
 const NavBar = ({ filteredCoins, handleChange, search }) => {

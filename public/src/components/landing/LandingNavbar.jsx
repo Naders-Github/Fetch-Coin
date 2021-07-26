@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
-import SignupForm from '../forms/Signup.jsx';
-import LoginForm from '../forms/Login.jsx';
-import logo from './FetchLogo.png'
+import logo from '../../../images/FetchLogo.png'
 import './landing.css';
 
 const LandingNavbar = () => {
@@ -13,35 +11,40 @@ const LandingNavbar = () => {
     history.push('/')
   };
 
-  const handleCoins = () => {
-    history.push('/coins');
+  const handleCompany = () => {
+    history.push('/company');
+  };
+  const handleCareer = () => {
+    history.push('/career');
+  };
+  const handleDevelopers = () => {
+    history.push('/developers');
   };
 
-  const handleSignup = () => {
+  const handleSignupAuth = () => {
     history.push('/signup');
   };
 
-  const handleLogin = () => {
-    history.push('/login');
+  const handleSigninAuth = () => {
+    history.push('/signin');
   };
-
-
 
   return (
     <div>
-      <img className="logo" src={logo} onClick={() => handleHome()}/>
       <Navbar className="navbar">
+        <div className="logo-container">
+          <img className="logo" src={logo} onClick={handleHome}/>
+        </div>
         <div className="button-container">
           <div className="landing-buttons text-center">
             <label id="home" className="landing-button" onClick={handleHome}><b>Home</b></label>
-            <label className="landing-button" type="button" onClick={handleCoins}><b>Prices</b></label>
-            <label className="landing-button" type="button"><b>Career</b></label>
-            <label className="landing-button" type="button"><b>Company</b></label>
-            <label className="landing-button" type="button"><b>Developers</b></label>
+            <label className="landing-button" type="button" onClick={handleCareer}><b>Career</b></label>
+            <label className="landing-button" type="button" onClick={handleCompany}><b>Company</b></label>
+            <label className="landing-button" type="button" onClick={handleDevelopers}><b>Developers</b></label>
           </div>
           <div className="signInUpButtons">
-            <label className="signup-button" type='submit' onClick={handleSignup}><b>Sign up</b></label>
-            <button id="login-button" type='submit' onClick={handleLogin}><b>Sign in</b></button>
+            <label className="signin-button" type='submit' onClick={handleSigninAuth}><b>Sign in</b></label>
+            <button id="login-button" type='submit' onClick={handleSignupAuth}><b>Sign up</b></button>
           </div>
         </div>
       </Navbar>
