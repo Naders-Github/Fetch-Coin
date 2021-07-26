@@ -8,8 +8,11 @@ import Coins from './components/coins/Coins';
 import Notifications from './components/notifications/Notifications';
 import Trade from './components/trade/Trade';
 import Profile from './components/profile/Profile.jsx';
-import Login from './components/forms/Login.jsx';
-import Signup from './components/forms/Signup.jsx';
+import Career from './components/Career/Career.jsx';
+import Company from './components/Company/Company.jsx';
+import Developers from './components/Developers/Developers.jsx';
+import SignupAuth from './components/firebaseForms/SignupAuth.jsx';
+import SigninAuth from './components/firebaseForms/SignInAuth.jsx';
 
 const App = () => (
   <div className="main">
@@ -23,8 +26,11 @@ const App = () => (
           <Route path="/notifications" component={Notifications} />
           <Route path="/trade" component={Trade} />
           <Route path="/profile" component={Profile} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
+          <Route path="/career" component={Career} />
+          <Route path="/company" component={Company} />
+          <Route path="/developers" component={Developers} />
+          <Route path="/signup" component={SignupAuth} />
+          <Route path="/signin" component={SigninAuth} />
         </Switch>
       </BrowserRouter>
     </WatchListContextProvider>
