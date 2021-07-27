@@ -1,9 +1,21 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import LandingNavbar from '../landing/LandingNavbar.jsx';
-import './forms.css'
+import './forms.css';
 
-const SignupForm = ({ email, setEmail, password, setPassword, handleSignin, handleSignup, hasAccount, setHasAccount, emailError, passwordError }) => {
+const SignupForm = (props) => {
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    handleSignup,
+    handleSignin,
+    hasAccount,
+    setHasAccount,
+    emailError,
+    passwordError
+  } = props;
 
   return (
     <div>
@@ -13,10 +25,18 @@ const SignupForm = ({ email, setEmail, password, setPassword, handleSignin, hand
           <div className="loginContainer">
             <h1 className="title"><b>Create your account</b></h1>
             <label>Email</label>
-            <input className="input" type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
+            <input
+              className="input"
+              type="text"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)} />
             <p className="errorMsg">{emailError}</p>
             <label>Password</label>
-            <input className="input" type="text" value={password} onChange={(event) => setPassword(event.target.value)} />
+            <input
+              className="input"
+              type="text"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)} />
             <p className="errorMsg">{passwordError}</p>
             <div className="btn-container">
               <>
@@ -31,10 +51,18 @@ const SignupForm = ({ email, setEmail, password, setPassword, handleSignin, hand
           <div className="loginContainer">
             <h1 className="title"><b>Sign in</b></h1>
             <label>Email</label>
-            <input className="input" type="text" value={email} onChange={(event) => setEmail(event.target.value)} />
+            <input
+              className="input"
+              type="text"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)} />
             <p className="errorMsg">{emailError}</p>
             <label>Password</label>
-            <input className="input" type="text" value={password} onChange={(event) => setPassword(event.target.value)} />
+            <input
+              className="input"
+              type="text"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)} />
             <p className="errorMsg">{passwordError}</p>
             <div className="btn-container">
               <>
@@ -46,7 +74,7 @@ const SignupForm = ({ email, setEmail, password, setPassword, handleSignin, hand
           </div>
         )}
       </section>
-    </div >
+    </div>
   );
 };
 
