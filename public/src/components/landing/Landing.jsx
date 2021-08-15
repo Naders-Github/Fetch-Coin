@@ -60,32 +60,20 @@ const LandingPage = () => {
   return (
     <div>
       <LandingNavbar />
-      <div className="right-column">
-        <img className="phone-photo" src={phonePhoto} />
-      </div>
-      <div className="left-column">
-        <h1 className="heading">Get $10 in free Bitcoin for signing up today</h1>
-        <h3 className="sub-heading">Fetch Coin is an easy platform to buy and sell cryptocurrency. Get started today.</h3>
-          <button id="body-signin-button" type="submit" onClick={handleSignupAuth}><b>Get started</b></button>
-          {/* <input id="email-input" type="text" placeholder="Email" /> */}
-      </div>
-      {/* <LandingCoins />
-      <div className="">
-        {!toggle ? (
-          <SearchIcon onClick={handleSearchClick} className="search-icon" />
-        ) : (
-            <div className="coin-search">
-              <input className="coin-input" type="text" onChange={handleChange} placeholder="Fetch Coins..." />
+      <section>
+        <div className="container">
+          <div className="split">
+            <div>
+              <img className="phone-photo" src={phonePhoto} />
             </div>
-        )}
-        <div className="coin-container">
-          <div className="coin-list">
-            {filteredCoins.map((coin) => (
-              <LandingList coin={coin} key={coin.id} search={search} />
-            ))}
+            <div>
+              <p>Get $10 in free Bitcoin for signing up today!</p>
+              <p>Fetch Coin is an easy platform to buy and sell cryptocurrency. Get started today!</p>
+              <button className="get-started-button" type="submit" onClick={handleSignupAuth}><b>GET STARTED</b></button>
+            </div>
           </div>
         </div>
-      </div> */}
+      </section>
     </div>
   );
 };

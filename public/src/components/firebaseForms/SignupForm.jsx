@@ -40,7 +40,7 @@ const SignupForm = (props) => {
             <p className="errorMsg">{passwordError}</p>
             <div className="btn-container">
               <>
-                <button onClick={handleSignup}>Create account</button>
+                <button className="create-account-button" onClick={handleSignup}>Create account</button>
                 <br />
                 <u onClick={() => setHasAccount(!hasAccount)}>Already Have an account? Log in</u>
               </>
@@ -66,7 +66,7 @@ const SignupForm = (props) => {
             <p className="errorMsg">{passwordError}</p>
             <div className="btn-container">
               <>
-                <button onClick={handleSignin}>Sign in</button>
+                <button className="signin-button" onClick={handleSignin}>Sign in</button>
                 <br />
                 <u onClick={() => setHasAccount(!hasAccount)}>Don't have an account? Sign up</u>
               </>
