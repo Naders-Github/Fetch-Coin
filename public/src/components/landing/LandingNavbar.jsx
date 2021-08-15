@@ -30,25 +30,18 @@ const LandingNavbar = () => {
   };
 
   return (
-    <div>
-      <Navbar className="navbar">
-        <div className="logo-container">
-          <img className="logo" src={logo} onClick={handleHome}/>
+    <section>
+      <div className="container container-narrow">
+        <img className="logo" src={logo} onClick={handleHome} />
+        <div className="nav-buttons">
+          <label className="home" type="button" onClick={handleHome}><b>Home</b></label>
+          <label type="button" onClick={handleCompany}><b>Company</b></label>
+          <label type="button" onClick={handleDevelopers}><b>Developers</b></label>
+          <label type='button' onClick={handleSigninAuth}><b>Sign in</b></label>
+          <button className="signup-button" type='button' onClick={handleSignupAuth}><b>Sign up</b></button>
         </div>
-        <div className="button-container">
-          <div className="landing-buttons text-center">
-            <label id="home" className="landing-button" onClick={handleHome}><b>Home</b></label>
-            <label className="landing-button" type="button" onClick={handleCareer}><b>Career</b></label>
-            <label className="landing-button" type="button" onClick={handleCompany}><b>Company</b></label>
-            <label className="landing-button" type="button" onClick={handleDevelopers}><b>Developers</b></label>
-          </div>
-          <div className="signInUpButtons">
-            <label className="signin-button" type='submit' onClick={handleSigninAuth}><b>Sign in</b></label>
-            <button id="login-button" type='submit' onClick={handleSignupAuth}><b>Sign up</b></button>
-          </div>
-        </div>
-      </Navbar>
-    </div>
+      </div>
+    </section>
   )
 }
 

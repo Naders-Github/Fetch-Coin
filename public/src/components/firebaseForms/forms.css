@@ -1,4 +1,4 @@
-button {
+/* button {
   border: none;
   outline: none;
   width: 35%;
@@ -10,7 +10,7 @@ button {
   cursor: pointer;
   border-radius: 15px;
   margin: 0vh 0vh 3vh 17vh;
-}
+} */
 
 .forms {
   width: 100%;
@@ -29,7 +29,7 @@ button {
   flex-direction: column;
   justify-content: center;
   box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
-  margin-top: 0vh;
+  margin-top: 11vh;
 }
 
 .input {
@@ -58,7 +58,7 @@ button {
 
 u {
   cursor: pointer;
-  margin: 0vh 0vh 0vh 13.2vh;
+  margin-left: 2.35em;
 }
 
 .login .loginContainer .btn-container {
@@ -122,4 +122,12 @@ u {
 
 title {
   margin-left: 7vh;
+}
+
+.create-account-button {
+  margin: 2em 0em 4em 11em;
+}
+
+.signin-button {
+  margin: 2em 0em 4em 13em;
 }
